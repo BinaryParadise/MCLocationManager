@@ -11,6 +11,7 @@
 
 //NSNotification.object = <CLLocation *>
 FOUNDATION_EXPORT NSString * const kDidLocationUpdateNotification;    //GPS定位信息改变的通知
+FOUNDATION_EXPORT NSString * const kDidLocationFailNotification;    //GPS定位失败的通知
 
 typedef NS_OPTIONS(NSUInteger, MCLocationType) {
     MCLocationStopWhenUpdated = 0,  //定位成功后停止

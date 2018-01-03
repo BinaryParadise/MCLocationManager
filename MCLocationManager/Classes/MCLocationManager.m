@@ -9,7 +9,8 @@
 #import "MCLocationManager.h"
 #import <MCLogger/MCLogger.h>
 
-NSString * const kDidLocationUpdateNotification = @"DidLocationUpdateNotificationKey";    //GPS定位信息改变的通知
+NSString * const kDidLocationUpdateNotification = @"DidLocationUpdateNotificationKey";
+NSString * const kDidLocationFailNotification = @"DidLocationFailNotificationKey";
 
 @interface MCLocationManager () <CLLocationManagerDelegate>
 
@@ -59,7 +60,9 @@ NSString * const kDidLocationUpdateNotification = @"DidLocationUpdateNotificatio
         _locationMgr.delegate = self;
         if([CLLocationManager locationServicesEnabled]
            && [CLLocationManager authorizationStatus] == kCLAuthorizationStatusNotDetermined) {
-            [_locationMgr requestWhenInUseAuthorization];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [_locationMgr requestWhenInUseAuthorization];
+            });
         }
     }
     return _locationMgr;
@@ -82,6 +85,7 @@ NSString * const kDidLocationUpdateNotification = @"DidLocationUpdateNotificatio
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
     MCLogError(@"%@", error);
+    [[NSNotificationCenter defaultCenter] postNotificationName:kDidLocationFailNotification object:error.localizedDescription];
 }
 
 @end
