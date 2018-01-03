@@ -7,8 +7,9 @@
 //
 
 #import "MCLocationManager.h"
-#import <CoreLocation/CoreLocation.h>
 #import <MCLogger/MCLogger.h>
+
+NSString * const kDidLocationUpdateNotification = @"DidLocationUpdateNotificationKey";    //GPS定位信息改变的通知
 
 @interface MCLocationManager () <CLLocationManagerDelegate>
 
@@ -71,8 +72,12 @@
 #pragma mark - CLLocationManagerDelegate
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
-    MCLogDebug(@"定位成功停止定位：%@", locations);
-    [self.locationMgr stopUpdatingLocation];
+    [[NSNotificationCenter defaultCenter] postNotificationName:kDidLocationUpdateNotification object:locations.firstObject];
+    MCLogInfo(@"定位成功：%@", locations);
+    if(self.locationType == MCLocationStopWhenUpdated) {
+        [self.locationMgr stopUpdatingLocation];
+        MCLogInfo(@"定位已停止");
+    }
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {

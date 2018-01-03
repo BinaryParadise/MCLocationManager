@@ -19,14 +19,14 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didLocationFinished:) name:kDidLocationUpdateNotification object:nil];
     [[MCLocationManager defaultManager] startLocation];
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)didLocationFinished:(NSNotification *)noti {
+    CLLocation *location = noti.object;
+    
+    NSLog(@"定位成功：%f, %f", location.coordinate.longitude, location.coordinate.latitude);
 }
 
 @end

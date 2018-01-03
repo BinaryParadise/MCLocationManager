@@ -33,7 +33,7 @@ TODO: Add long description of the pod here.
   s.source_files = 'MCLocationManager/Classes/**/*'
   
   # s.resource_bundles = {
-  #   'MCLocationManager' => ['MCLocationManager/Assets/*.png']
+  #   'MCLocationManager' => ['MCLocationManager/Assets/*.gpx']
   # }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
