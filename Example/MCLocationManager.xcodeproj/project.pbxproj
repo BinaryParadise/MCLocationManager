@@ -37,7 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4F021D812D2F747302658AEB /* MCLocationManager.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = MCLocationManager.podspec; path = ../MCLocationManager.podspec; sourceTree = "<group>"; };
+		4F021D812D2F747302658AEB /* MCLocationManager.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = MCLocationManager.podspec; path = ../MCLocationManager.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		6003F58A195388D20070C39A /* MCLocationManager_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MCLocationManager_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -208,7 +208,6 @@
 				6003F587195388D20070C39A /* Frameworks */,
 				6003F588195388D20070C39A /* Resources */,
 				E14AD53AF5731EADA30305DE /* [CP] Embed Pods Frameworks */,
-				0F25A9868F0090EC83B203A0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -227,8 +226,6 @@
 				6003F5AA195388D20070C39A /* Sources */,
 				6003F5AB195388D20070C39A /* Frameworks */,
 				6003F5AC195388D20070C39A /* Resources */,
-				581A4B7C0EB4A7342177285D /* [CP] Embed Pods Frameworks */,
-				72ACAC6412AF112C7EE70822 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -297,36 +294,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0F25A9868F0090EC83B203A0 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MCLocationManager_Example/Pods-MCLocationManager_Example-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		581A4B7C0EB4A7342177285D /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MCLocationManager_Tests/Pods-MCLocationManager_Tests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		6DD20212B4AD55EDC293A6D2 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -343,21 +310,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		72ACAC6412AF112C7EE70822 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MCLocationManager_Tests/Pods-MCLocationManager_Tests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		8C055D5D32BDA0B5EF7844E8 /* [CP] Check Pods Manifest.lock */ = {
@@ -385,15 +337,11 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-MCLocationManager_Example/Pods-MCLocationManager_Example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework",
 				"${BUILT_PRODUCTS_DIR}/MCLocationManager/MCLocationManager.framework",
-				"${BUILT_PRODUCTS_DIR}/MCLogger/MCLogger.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaLumberjack.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MCLocationManager.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MCLogger.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
