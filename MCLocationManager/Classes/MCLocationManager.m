@@ -7,7 +7,6 @@
 //
 
 #import "MCLocationManager.h"
-#import <MCLogger/MCLogger.h>
 
 NSString * const kDidLocationUpdateNotification = @"DidLocationUpdateNotificationKey";
 NSString * const kDidLocationFailNotification = @"DidLocationFailNotificationKey";
@@ -32,14 +31,6 @@ NSString * const kDidLocationFailNotification = @"DidLocationFailNotificationKey
 }
 
 + (instancetype)defaultManager {
-    return [[self alloc] init];
-}
-
-+ (instancetype)copyWithZone:(struct _NSZone *)zone {
-    return [[self alloc] init];
-}
-
-+ (instancetype)mutableCopyWithZone:(struct _NSZone *)zone {
     return [[self alloc] init];
 }
 
@@ -76,15 +67,13 @@ NSString * const kDidLocationFailNotification = @"DidLocationFailNotificationKey
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations {
     [[NSNotificationCenter defaultCenter] postNotificationName:kDidLocationUpdateNotification object:locations.firstObject];
-    MCLogInfo(@"定位成功：%@", locations);
     if(self.locationType == MCLocationStopWhenUpdated) {
         [self.locationMgr stopUpdatingLocation];
-        MCLogInfo(@"定位已停止");
     }
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
-    MCLogError(@"%@", error);
+    NSLog(@"%@", error);
     [[NSNotificationCenter defaultCenter] postNotificationName:kDidLocationFailNotification object:error.localizedDescription];
 }
 
